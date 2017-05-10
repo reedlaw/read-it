@@ -19,6 +19,13 @@ export type Deps = {
 
 // Models
 
+export type Post = {|
+  createdAt: number,
+  id: string,
+  title: string,
+  url: string,
+|};
+
 export type Todo = {|
   completed: boolean,
   createdAt: number,
@@ -106,6 +113,7 @@ export type Action =
   | { type: 'CLEAR_ALL_COMPLETED_TODOS' }
   | { type: 'CLEAR_ALL_TODOS' }
   | { type: 'DELETE_TODO', payload: { id: string } }
+  | { type: 'LIKE_POST', payload: { id: string } }
   | { type: 'ON_AUTH', payload: { firebaseUser: ?Object } }
   | { type: 'ON_USERS_PRESENCE', payload: { presence: Object } }
   | { type: 'RESET_PASSWORD', payload: { email: string } }
@@ -117,6 +125,7 @@ export type Action =
   | { type: 'SIGN_IN_FAIL', payload: { error: Error } }
   | { type: 'SIGN_OUT' }
   | { type: 'SIGN_UP', payload: { providerName: string, options?: Object } }
+  | { type: 'SUBMIT_POST', payload: { post: Post } }
   | { type: 'SIGN_UP_DONE', payload: { user: ?User } }
   | { type: 'SIGN_UP_FAIL', payload: { error: Error } }
   | { type: 'TOGGLE_TODO_COMPLETED', payload: { todo: Todo } }

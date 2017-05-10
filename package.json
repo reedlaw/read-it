@@ -1,5 +1,5 @@
 {
-  "name": "Read It",
+  "name": "ReadIt",
   "private": true,
   "scripts": {
     "build": "gulp build --production",

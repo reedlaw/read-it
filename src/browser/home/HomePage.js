@@ -16,7 +16,7 @@ import { Link, Title } from '../components';
 
 const HomePage = () => (
   <Box>
-    <Title message="Este.js" />
+    <Title message="Read It" />
     <PageHeader
       heading="Este"
       description="Starter kit for universal full–fledged React apps. One stack
