@@ -165,10 +165,6 @@ export default [
     "defaultMessage": "The specified user account does not exist.",
   },
   {
-    "id": "footer.madeByHtml",
-    "defaultMessage": "Made with love by",
-  },
-  {
     "id": "intl.page.unreadCount",
     "defaultMessage": "{unreadCount, plural, one {message} other {messages}}",
   },

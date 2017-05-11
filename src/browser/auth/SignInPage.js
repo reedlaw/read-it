@@ -25,7 +25,6 @@ const SignInPage = (
   <Box>
     <Title message={linksMessages.signIn} />
     <PageHeader heading={intl.formatMessage(linksMessages.signIn)} />
-    <Social />
     <Email />
     <SignInError />
     {disabled && <Loading marginVertical={1} />}
