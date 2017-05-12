@@ -18,7 +18,9 @@ const reducer = (
         return { ...state, all: null };
       }
       const byCreatedAt = sortBy(prop('createdAt'));
+      const byScore = sortBy(prop('score'));
       const all = compose(
+        byScore,
         byCreatedAt,
         map(item => item.post),
         values,
