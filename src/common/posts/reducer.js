@@ -1,7 +1,7 @@
 // @flow
 import type { Action, PostsState } from '../types';
 import { assocPath, dissocPath, filter } from 'ramda';
-import { descend, compose, last, map, prop, sortBy, values } from 'ramda';
+import { ascend, descend, compose, last, map, prop, sortWith, values } from 'ramda';
 
 const initialState = {
   all: null,
@@ -17,22 +17,18 @@ const reducer = (
       if (!posts) {
         return { ...state, all: null };
       }
-      const byCreatedAt = sortBy(prop('createdAt'));
-      const byScore = sortBy(descend(prop('score')));
+      const scoreDateSort = sortWith([
+        descend(prop('score')),
+        ascend(prop('createdAt')),
+      ]);
       const all = compose(
-        byScore,
-        byCreatedAt,
+        scoreDateSort,
         map(item => item.post),
         values,
       )(posts);
       return { ...state, all };
     }
       
-    case 'SUBMIT_POST': {
-      const { post } = action.payload;
-      return assocPath(['all', post.id], post, state);
-    }
-
     default:
       return state;
   }
