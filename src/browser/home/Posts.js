@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from '../components';
 import {
   Box,
-  Button,
+  Arrow,
   Heading,
   Image,
   Paragraph,
@@ -17,23 +17,18 @@ type PostViewProps = {
 };
 
 const PostView = ({ post }: PostViewProps) => (
-  <Box>
+  <Box flexDirection="row" flexWrap="wrap" marginHorizontal={0.5}>
+    <Arrow />
+    <Text bold marginRight={0.25}>{post.score}</Text>
     {!post.url &&
-     <Heading size={1}>
-       Title: {post.title}
-     </Heading>
-    }
-    {post.text &&
-      <Paragraph>
-        Text: {post.text}
-      </Paragraph>
+     <Link to={post.url}>
+       {post.title}
+     </Link>
     }
     {post.url &&
-     <Heading size={1}>
-       <Link to={post.url}>
-         {post.title}
-       </Link>
-     </Heading>
+     <Link to={post.url}>
+       {post.title}
+     </Link>
     }
   </Box>
 );

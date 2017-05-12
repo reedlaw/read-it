@@ -2,18 +2,7 @@
 import * as themes from '../themes';
 import React from 'react';
 import Posts from './Posts';
-import {
-  Box,
-  Button,
-  Heading,
-  Image,
-  PageHeader,
-  Paragraph,
-  SwitchTheme,
-  Text,
-  ToggleBaseline,
-} from '../../common/components';
-import { Link, Title } from '../components';
+import { Box } from '../../common/components';
 
 const HomePage = () => (
   <Box>

@@ -22,9 +22,10 @@ export type Deps = {
 export type Post = {|
   createdAt: number,
   id: string,
+  score: number,
+  text: string,
   title: string,
   url: string,
-  text: string,
 |};
 
 export type Todo = {|

@@ -14,6 +14,7 @@ export const submitPost = (text: string, title: string, url: string) =>
       post: {
         createdAt: now(),
         id: getUid(),
+        score: 0,
         text: text.trim(),
         title: title.trim(),
         url: url.trim(),

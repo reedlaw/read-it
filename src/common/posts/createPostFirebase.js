@@ -7,9 +7,10 @@ const createPostFirebase = (json: ?Object): ?Post => {
   const post: Post = {
     createdAt: postData.createdAt,
     id: json.uid,
+    score: postData.score,
+    text: postData.text,
     title: postData.title,
     url: postData.url,
-    text: postData.text,    
   };
   return post;
 };
