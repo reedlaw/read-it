@@ -9,15 +9,11 @@ import { onLoadPosts } from '../../common/posts/actions';
 
 // Pages
 import App from './App';
-import FieldsPage from '../fields/FieldsPage';
 import HomePage from '../home/HomePage';
-import IntlPage from '../intl/IntlPage';
 import MePage from '../me/MePage';
-import OfflinePage from '../offline/OfflinePage';
 import ProfilePage from '../me/ProfilePage';
 import SettingsPage from '../me/SettingsPage';
 import SignInPage from '../auth/SignInPage';
-import TodosPage from '../todos/TodosPage';
 import UsersPage from '../users/UsersPage';
 import SubmitPage from '../submit/SubmitPage';
 
@@ -44,15 +40,11 @@ const routeConfig = makeRouteConfig(
                 ref => [ref.child('posts'), 'value', onLoadPosts],
           )}
     />
-    <Route path="fields" Component={FieldsPage} />
-    <Route path="intl" Component={IntlPage} />
     <AuthorizedRoute path="me" Component={MePage}>
       <Route path="profile" Component={ProfilePage} />
       <Route path="settings" Component={SettingsPage} />
     </AuthorizedRoute>
-    <Route path="offline" Component={OfflinePage} />
     <Route path="signin" Component={SignInPage} />
-    <Route path="todos" Component={TodosPage} />
     <AuthorizedRoute path="submit" Component={SubmitPage} />
     <Route
       path="users"
