@@ -31,13 +31,18 @@ const PostView = ({ post, likePost, viewer }) => {
   return (
     <Box flexDirection="row" flexWrap="wrap" marginHorizontal={0.5}>
       <a onClick={() => likePost(post, viewer)} style={arrowStyle}></a>
-      <Text bold marginRight={0.25}>{post.score}</Text>
+      <Text marginRight={0.25}>{post.score}</Text>
       {!post.url &&
-       <Link to={`posts/${post.id}`}>
-         {post.title}
-       </Link>
+       <div>
+         <Text bold marginRight={0.25}>
+           {post.title}
+         </Text>
+         <Text marginRight={0.25}>
+           {post.text}
+         </Text>
+       </div>
       }
-       {post.url &&
+      {post.url &&
         <Link to={post.url}>
           {post.title}
         </Link>
