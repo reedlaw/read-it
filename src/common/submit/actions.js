@@ -34,11 +34,6 @@ export const submitPostFail = (error: Error): Action => ({
   payload: { error },
 });
 
-export const likePost = (id: string): Action => ({
-  type: 'LIKE_POST',
-  payload: { id },
-});
-
 const mapFirebaseErrorToEsteValidationError = code => {
   const prop = {
     'auth/email-already-in-use': 'email',

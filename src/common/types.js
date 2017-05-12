@@ -125,7 +125,9 @@ export type Action =
   | { type: 'CLEAR_ALL_COMPLETED_TODOS' }
   | { type: 'CLEAR_ALL_TODOS' }
   | { type: 'DELETE_TODO', payload: { id: string } }
-  | { type: 'LIKE_POST', payload: { id: string } }
+  | { type: 'LIKE_POST', payload: { post: Post, user: ?User } }
+  | { type: 'LIKE_POST_DONE', payload: { posts: Object } }
+  | { type: 'LIKE_POST_FAIL', payload: { error: Error } }
   | { type: 'ON_AUTH', payload: { firebaseUser: ?Object } }
   | { type: 'ON_LOAD_POSTS', payload: { posts: Object } }
   | { type: 'ON_USERS_PRESENCE', payload: { presence: Object } }
