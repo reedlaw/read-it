@@ -8,7 +8,7 @@ import { Title } from '../components';
 const UsersPage = () => (
   <Box>
     <Title message={linksMessages.users} />
-    <PageHeader heading="Users" description="Online users." />
+    <PageHeader heading="Users" description="Online users" />
     <OnlineUsers />
   </Box>
 );

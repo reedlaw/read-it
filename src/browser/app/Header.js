@@ -39,6 +39,7 @@ const Header = ({ viewer }: HeaderProps) => (
     paddingHorizontal={0.5}
   >
     <HeaderLink exact to="/" message={linksMessages.home} />
+    <HeaderLink to="/submit" message={linksMessages.submit} />
     <HeaderLink to="/users" message={linksMessages.users} />
     <HeaderLink to="/todos" message={linksMessages.todos} />
     <HeaderLink to="/fields" message={linksMessages.fields} />

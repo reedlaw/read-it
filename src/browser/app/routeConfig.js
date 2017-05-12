@@ -5,6 +5,7 @@ import React from 'react';
 import queryFirebase from './queryFirebase';
 import { makeRouteConfig, Route } from 'found/lib/jsx';
 import { onUsersPresence } from '../../common/users/actions';
+import { onLoadPosts } from '../../common/posts/actions';
 
 // Pages
 import App from './App';
@@ -18,6 +19,7 @@ import SettingsPage from '../me/SettingsPage';
 import SignInPage from '../auth/SignInPage';
 import TodosPage from '../todos/TodosPage';
 import UsersPage from '../users/UsersPage';
+import SubmitPage from '../submit/SubmitPage';
 
 // Custom route to require viewer aka authenticated user.
 const AuthorizedRoute = () => {};
@@ -36,7 +38,12 @@ AuthorizedRoute.createRoute = props => ({
 
 const routeConfig = makeRouteConfig(
   <Route path="/" Component={App}>
-    <Route Component={HomePage} />
+    <Route
+        Component={HomePage}
+        getData={queryFirebase(
+                ref => [ref.child('posts'), 'value', onLoadPosts],
+          )}
+    />
     <Route path="fields" Component={FieldsPage} />
     <Route path="intl" Component={IntlPage} />
     <AuthorizedRoute path="me" Component={MePage}>
@@ -46,6 +53,7 @@ const routeConfig = makeRouteConfig(
     <Route path="offline" Component={OfflinePage} />
     <Route path="signin" Component={SignInPage} />
     <Route path="todos" Component={TodosPage} />
+    <AuthorizedRoute path="submit" Component={SubmitPage} />
     <Route
       path="users"
       Component={UsersPage}
