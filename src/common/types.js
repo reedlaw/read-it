@@ -110,6 +110,7 @@ export type State = {
   intl: IntlState,
   posts: PostsState,
   todos: TodosState,
+  submit: SubmitState,
   users: UsersState,
 };
 

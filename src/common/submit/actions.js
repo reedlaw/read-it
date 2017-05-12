@@ -1,6 +1,5 @@
 // @flow
 import type { Action, Deps, Post } from '../types';
-import firebaseMessages from './firebaseMessages';
 import invariant from 'invariant';
 import createPostFirebase from '../posts/createPostFirebase';
 import { Observable } from 'rxjs/Observable';
@@ -36,10 +35,7 @@ export const submitPostFail = (error: Error): Action => ({
 
 const mapFirebaseErrorToEsteValidationError = code => {
   const prop = {
-    'auth/email-already-in-use': 'email',
-    'auth/invalid-email': 'email',
-    'auth/user-not-found': 'email',
-    'auth/wrong-password': 'password',
+    'required': 'title',
   }[code];
   return new ValidationError(code, { prop });
 };
@@ -62,8 +58,6 @@ const submitPostEpic = (action$: any, { firebaseDatabase, validate }: Deps) =>
     return Observable.from(promise)
                      .map(firebasePost => submitPostDone(firebasePost))
                      .catch(error => {
-                       console.log(error);
-                       console.log(error.code);                       
                        return Observable.of(submitPostFail(error));
                      });
   });
