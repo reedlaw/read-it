@@ -130,6 +130,7 @@ export type Action =
   | { type: 'LIKE_POST_FAIL', payload: { error: Error } }
   | { type: 'ON_AUTH', payload: { firebaseUser: ?Object } }
   | { type: 'ON_LOAD_POSTS', payload: { posts: Object } }
+  | { type: 'ON_LOAD_POST', payload: { post: ?Post } }
   | { type: 'ON_USERS_PRESENCE', payload: { presence: Object } }
   | { type: 'RESET_PASSWORD', payload: { email: string } }
   | { type: 'SAVE_POST_DONE' }

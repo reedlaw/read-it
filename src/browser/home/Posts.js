@@ -33,7 +33,7 @@ const PostView = ({ post, likePost, viewer }) => {
       <a onClick={() => likePost(post, viewer)} style={arrowStyle}></a>
       <Text bold marginRight={0.25}>{post.score}</Text>
       {!post.url &&
-       <Link to={post.url}>
+       <Link to={`posts/${post.id}`}>
          {post.title}
        </Link>
       }

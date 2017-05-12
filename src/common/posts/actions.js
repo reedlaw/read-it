@@ -30,6 +30,14 @@ export const onLoadPosts = (snap: Object): Action => {
   };
 };
 
+export const onLoadPost = (snap: Object): Action => {
+  const post = snap.val();
+  return {
+    type: 'ON_LOAD_POST',
+    payload: { post },
+  };
+};
+
 export const savePostDone = (): Action => ({
   type: 'SAVE_POST_DONE',
 });
