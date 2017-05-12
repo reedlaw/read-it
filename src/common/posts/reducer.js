@@ -1,7 +1,7 @@
 // @flow
 import type { Action, PostsState } from '../types';
 import { assocPath, dissocPath, filter } from 'ramda';
-import { ascend, compose, last, map, prop, sortBy, values } from 'ramda';
+import { descend, compose, last, map, prop, sortBy, values } from 'ramda';
 
 const initialState = {
   all: null,
@@ -18,7 +18,7 @@ const reducer = (
         return { ...state, all: null };
       }
       const byCreatedAt = sortBy(prop('createdAt'));
-      const byScore = sortBy(prop('score'));
+      const byScore = sortBy(descend(prop('score')));
       const all = compose(
         byScore,
         byCreatedAt,
