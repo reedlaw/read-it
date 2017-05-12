@@ -6,6 +6,10 @@ const LinkMessages = defineMessages({
     defaultMessage: 'Intl',
     id: 'app.links.intl',
   },
+  submit: {
+    defaultMessage: 'Submit',
+    id: 'app.links.submit',
+  },
   fields: {
     defaultMessage: 'Fields',
     id: 'app.links.fields',

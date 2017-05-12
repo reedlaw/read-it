@@ -1,11 +1,12 @@
 // @flow
-import type { Action, State } from './types';
 import app from './app/reducer';
 import auth from './auth/reducer';
 import config from './config/reducer';
 import device from './device/reducer';
 import intl from './intl/reducer';
-import todos from './todos/reducer';
+import posts from './posts/reducer';
+import submit from './submit/reducer';
+import type { Action, State } from './types';
 import users from './users/reducer';
 import { combineReducers } from 'redux';
 import { fieldsReducer as fields } from './lib/redux-fields';
@@ -25,6 +26,7 @@ const resetStateOnSignOutReducer = (reducer, initialState) =>
       config: initialState.config,
       device: initialState.device,
       intl: initialState.intl,
+      posts: state.posts,
     };
     // Preserve Found router reducer.
     if (process.env.IS_BROWSER) {
@@ -46,7 +48,8 @@ const configureReducer = (platformReducers: Object, initialState: Object) => {
     device,
     fields,
     intl,
-    todos,
+    posts,
+    submit,
     users,
   });
 

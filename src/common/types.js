@@ -24,6 +24,7 @@ export type Post = {|
   id: string,
   title: string,
   url: string,
+  text: string,
 |};
 
 export type Todo = {|
@@ -78,6 +79,15 @@ export type IntlState = {
   messages: ?Object,
 };
 
+export type PostsState = {
+  all: ?Array<Post>,
+};
+
+export type SubmitState = {
+  formDisabled: boolean,
+  error: ?Error,
+};
+
 export type TodosState = {
   all: { [id: string]: Todo },
 };
@@ -97,6 +107,7 @@ export type State = {
   fields: any,
   found: Object, // found router
   intl: IntlState,
+  posts: PostsState,
   todos: TodosState,
   users: UsersState,
 };
@@ -115,8 +126,10 @@ export type Action =
   | { type: 'DELETE_TODO', payload: { id: string } }
   | { type: 'LIKE_POST', payload: { id: string } }
   | { type: 'ON_AUTH', payload: { firebaseUser: ?Object } }
+  | { type: 'ON_LOAD_POSTS', payload: { posts: Object } }
   | { type: 'ON_USERS_PRESENCE', payload: { presence: Object } }
   | { type: 'RESET_PASSWORD', payload: { email: string } }
+  | { type: 'SAVE_POST_DONE' }
   | { type: 'SAVE_USER_DONE' }
   | { type: 'SET_CURRENT_LOCALE', payload: { locale: string } }
   | { type: 'SET_THEME', payload: { theme: string } }
@@ -126,6 +139,8 @@ export type Action =
   | { type: 'SIGN_OUT' }
   | { type: 'SIGN_UP', payload: { providerName: string, options?: Object } }
   | { type: 'SUBMIT_POST', payload: { post: Post } }
+  | { type: 'SUBMIT_POST_DONE', payload: { post: ?Post } }
+  | { type: 'SUBMIT_POST_FAIL', payload: { error: Error } }
   | { type: 'SIGN_UP_DONE', payload: { user: ?User } }
   | { type: 'SIGN_UP_FAIL', payload: { error: Error } }
   | { type: 'TOGGLE_TODO_COMPLETED', payload: { todo: Todo } }
